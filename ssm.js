@@ -1,7 +1,7 @@
 export async function ssm(params) {
-  let env = Deno.env.toObject()
-  let Path = env.ARC_CLOUDFORMATION
-  let Recursive = true
+  let env = Deno.env.toObject();
+  let Path = env.ARC_CLOUDFORMATION;
+  let Recursive = true;
   //POST / HTTP/1.1
   //Host: ssm.us-east-2.amazonaws.com
   //Accept-Encoding: identity
@@ -17,6 +17,6 @@ export async function ssm(params) {
   //    "Path": "/Branch312/Dev/",
   //    "Recursive": true
   //}
-  let result = await fetch(opts)
-  return fetch.json()
+  let result = await fetch(opts);
+  return fetch.json();
 }

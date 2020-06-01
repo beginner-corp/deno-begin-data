@@ -4,6 +4,7 @@ import { Hashids } from "https://raw.githubusercontent.com/smallwins/deno-hashid
 /** get a ddb client */
 export function createClient() {
   let env = Deno.env.toObject();
+  // running locally
   if (env.NODE_ENV === "testing" || env.DENO_ENV === "testing") {
     let conf = {
       credentials: {
@@ -16,7 +17,14 @@ export function createClient() {
     };
     return create(conf);
   }
-  return create();
+  // running in staging or production
+  return create({
+    credentials: {
+      accessKeyId: env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+      sessionToken: env.AWS_SESSION_TOKEN,
+    },
+  });
 }
 
 /** get the begin/data dynamodb table name */

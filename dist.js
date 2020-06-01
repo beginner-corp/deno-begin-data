@@ -6273,6 +6273,7 @@ System.register(
     /** get a ddb client */
     function createClient() {
       let env = Deno.env.toObject();
+      // running locally
       if (env.NODE_ENV === "testing" || env.DENO_ENV === "testing") {
         let conf = {
           credentials: {
@@ -6285,7 +6286,14 @@ System.register(
         };
         return mod_ts_15.createClient(conf);
       }
-      return mod_ts_15.createClient();
+      // running in staging or production
+      return mod_ts_15.createClient({
+        credentials: {
+          accessKeyId: env.AWS_ACCESS_KEY_ID,
+          secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+          sessionToken: env.AWS_SESSION_TOKEN,
+        },
+      });
     }
     exports_33("createClient", createClient);
     /** get the begin/data dynamodb table name */

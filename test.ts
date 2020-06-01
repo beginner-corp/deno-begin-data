@@ -114,6 +114,6 @@ Deno.test("page", async () => {
     console.log(p);
     index++;
   }
-  equal(index, 2)
+  equal(index, 2);
   await stop();
 });
