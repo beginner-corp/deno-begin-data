@@ -6,12 +6,13 @@ import {
   unfmt,
 } from "./deps.ts";
 
-/** set an item */
+/** set record(s) */
 export async function set(params) {
   let exec = Array.isArray(params) ? batch : one;
   return exec(params);
 }
 
+/** set one record */
 async function one(params) {
   if (!params.key) {
     params.key = await createKey(params.table);
@@ -30,6 +31,7 @@ async function one(params) {
   return { ...params };
 }
 
+/** batch set records */
 async function batch(params) {
   let TableName = await getTableName();
   // ensure keys

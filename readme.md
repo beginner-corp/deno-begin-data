@@ -22,9 +22,9 @@ Experimental port of begin/data from Node to Deno
 - [x] `set(params:{table:string})`
 - [x] `set(params:object[])`
 - [x] `destroy(params:{table:string, key:string})`
-- [ ] `destroy(params:object[])`
-- [ ] `incr()`
-- [ ] `decr()`
-- [ ] `count()`
-- [ ] `page()`
+- [x] `destroy(params:object[])`
+- [x] `incr(params:{table:string, key:string, prop:string)`
+- [x] `decr(params:{table:string, key:string, prop:string)`
+- [x] `count(params:{table:string})`
+- [x] `page(params:{table:string})`
 - [ ] SSM discovery

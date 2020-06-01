@@ -1,20 +1,19 @@
 import { assert, equal, sandbox } from "./sandbox.js";
 import { version } from "./version.ts";
-import { set, get, destroy } from "./mod.ts";
+import { set, get, destroy, incr, decr, count, page } from "./mod.ts";
 import { createKey } from "./deps.ts";
 
 Deno.test(`begin/data@v${version}`, () => {
   if (!get) throw Error("missing module");
 });
 
-Deno.test("createKey", async () => {
+Deno.test("incr/decr", async () => {
+  let table = "cats";
   let stop = await sandbox();
-  let result = await Promise.all([
-    createKey("foo"),
-    createKey("foo"),
-    createKey("foo"),
-  ]);
-  console.log(result);
+  let result = await incr({ table, key: "_count", prop: "_totals" });
+  assert(result._totals === 1);
+  let result2 = await decr({ table, key: "_count", prop: "_totals" });
+  assert(result2._totals === 0);
   await stop();
 });
 
@@ -72,5 +71,49 @@ Deno.test("batch set", async () => {
   let cat3 = { table };
   let result = await set([cat1, cat2, cat3]);
   console.log(result);
+  await stop();
+});
+
+Deno.test("batch destroy", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  let cat1 = { table };
+  let cat2 = { table };
+  let cat3 = { table };
+  let result = await set([cat1, cat2, cat3]);
+  let result2 = await destroy(result);
+  console.log(result2);
+  await stop();
+});
+
+Deno.test("count", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  await set([
+    { table },
+    { table },
+    { table },
+  ]);
+  let result = await count({ table });
+  console.log(result);
+  equal(result, 3);
+  await stop();
+});
+
+Deno.test("page", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  await set([
+    { table },
+    { table },
+    { table },
+  ]);
+  let pages = await page({ table, limit: 2 });
+  let index = 0;
+  for await (let p of pages) {
+    console.log(p);
+    index++;
+  }
+  equal(index, 2)
   await stop();
 });
