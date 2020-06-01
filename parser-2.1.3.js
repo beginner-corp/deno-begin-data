@@ -1260,10 +1260,13 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 ? "+"
                 : i
                 ? ""
-                : "-") + "\n";
+                : "-") +
+                "\n";
             }
             function Z(e) {
-              return "\n" === e[e.length - 1] ? e.slice(0, -1) : e;
+              return "\n" === e[e.length - 1]
+                ? e.slice(0, -1)
+                : e;
             }
             function z(e, t) {
               if ("" === e || " " === e[0]) return e;
@@ -1374,7 +1377,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     : (function (e, t, n) {
                       var i, r, o, a, s, c = "", u = e.tag, l = Object.keys(n);
                       for (
-                        i = 0, r = l.length; i < r; i += 1
+                        i = 0, r = l.length;
+                        i < r;
+                        i += 1
                       ) {
                         s = e.condenseFlow ? '"' : "",
                           0 !== i && (s += ", "),
@@ -1382,7 +1387,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                           Q(e, t, o, !1, !1) &&
                           (1024 < e.dump.length && (s += "? "),
                             s += e.dump + (e.condenseFlow ? '"' : "") + ":" +
-                              (e.condenseFlow ? "" : " "),
+                              (e.condenseFlow
+                                ? ""
+                                : " "),
                             Q(e, t, a, !1, !1) && (c += s += e.dump));
                       }
                       e.tag = u, e.dump = "{" + c + "}";
@@ -1408,9 +1415,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                       var i, r, o = "", a = e.tag;
                       for (i = 0, r = n.length; i < r; i += 1) {
                         Q(e, t, n[i], !1, !1) &&
-                          (0 !== i && (o += "," + (e.condenseFlow
-                            ? ""
-                            : " ")),
+                          (0 !== i && (o += "," + (e.condenseFlow ? "" : " ")),
                             o += e.dump);
                       }
                       e.tag = a, e.dump = "[" + o + "]";
@@ -1444,7 +1449,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                       }
                     } else {
                       for (
-                        r = Object.keys(t), o = 0, a = r.length; o < a; o += 1
+                        r = Object.keys(t), o = 0, a = r.length;
+                        o < a;
+                        o += 1
                       ) {
                         e(t[r[o]], n, i);
                       }
@@ -1535,7 +1542,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
               return 44 === e || 91 === e || 93 === e || 123 === e || 125 === e;
             }
             function d(e) {
-              return 48 === e ? "\0" : 97 === e ? "" : 98 === e
+              return 48 === e ? "\0" : 97 === e
+              ? ""
+              : 98 === e
               ? "\b"
               : 116 === e
               ? "\t"
@@ -1570,7 +1579,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
               : "";
             }
             for (
-              var E = new Array(256), F = new Array(256), h = 0; h < 256; h++
+              var E = new Array(256), F = new Array(256), h = 0;
+              h < 256;
+              h++
             ) {
               E[h] = d(h) ? 1 : 0, F[h] = d(h);
             }
@@ -1656,7 +1667,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
               if (t < n) {
                 if (s = e.input.slice(t, n), i) {
                   for (
-                    r = 0, o = s.length; r < o; r += 1
+                    r = 0, o = s.length;
+                    r < o;
+                    r += 1
                   ) {
                     9 === (a = s.charCodeAt(r)) ||
                       32 <= a && a <= 1114111 ||
@@ -1785,7 +1798,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     (e.line === n || e.lineIndent > t) && 0 !== i
                 ) {
                   N(e, "bad indentation of a sequence entry");
-                } else if (e.lineIndent < t) { 
+                } else if (e.lineIndent < t) {
                   break;
                 }
               }
@@ -1810,7 +1823,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   o
               ) {
                 for (
-                  ; 0 !== (r = e.input.charCodeAt(++e.position)) && 62 !== r;
+                  ;
+                  0 !== (r = e.input.charCodeAt(++e.position)) && 62 !== r;
                 );
                 e.position < e.length
                   ? (i = e.input.slice(t, e.position),
@@ -1846,7 +1860,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
             }
             function K(e) {
               var t, n;
-              if (38 !== (n = e.input.charCodeAt(e.position))) { 
+              if (38 !== (n = e.input.charCodeAt(e.position))) {
                 return !1;
               }
               for (
@@ -1877,11 +1891,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   o = a = s = b === n || A === n,
                   i && Y(e, !0, -1) &&
                   (h = !0,
-                    e.lineIndent > t
-                      ? d = 1
-                      : e.lineIndent === t
-                      ? d = 0
-                      : e.lineIndent < t && (d = -1)),
+                    e.lineIndent > t ? d = 1 : e.lineIndent === t
+                    ? d = 0
+                    : e.lineIndent < t && (d = -1)),
                   1 === d
               ) {
                 for (; W(e) || K(e);) {
@@ -1896,9 +1908,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
               }
               if (
                 s && (s = h || r),
-                  1 !== d && b !== n || (p = x === n || v === n
-                    ? t
-                    : t + 1,
+                  1 !== d && b !== n ||
+                  (p = x === n || v === n ? t : t + 1,
                     f = e.position - e.lineStart,
                     1 === d
                       ? s && (P(e, f) || function (e, t, n) {
@@ -1931,7 +1942,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                 if (!$(e, n, v, !1, !0)) break;
                                 if (e.line === o) {
                                   for (
-                                    s = e.input.charCodeAt(e.position); S(s);
+                                    s = e.input.charCodeAt(e.position);
+                                    S(s);
                                   ) {
                                     s = e.input.charCodeAt(++e.position);
                                   }
@@ -1948,7 +1960,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                       f = e.tag,
                                       d = e.result;
                                   } else {
-                                    if (!g) return e.tag = c, e.anchor = u, !0;
+                                    if (!g) {
+                                      return e.tag = c, e.anchor = u, !0;
+                                    }
                                     N(
                                       e,
                                       "can not read an implicit mapping pair; a colon is missed",
@@ -1987,7 +2001,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                   e.lineIndent > t && 0 !== s
                               ) {
                                 N(e, "bad indentation of a mapping entry");
-                              } else if (e.lineIndent < t) break;
+                              } else if (e.lineIndent < t) {
+                                break;
+                              }
                             }
                             return m && U(e, l, p, f, d, null),
                               g &&
@@ -2087,7 +2103,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                               ) {
                                 i = !1;
                               } else {
-                                if (62 !== o) return !1;
+                                if (62 !== o) {
+                                  return !1;
+                                }
                                 i = !0;
                               }
                               for (e.kind = "scalar", e.result = ""; 0 !== o;) {
@@ -2096,12 +2114,10 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                     (o = e.input.charCodeAt(++e.position)) ||
                                   45 === o
                                 ) {
-                                  w === s
-                                    ? s = 43 === o ? k : C
-                                    : N(
-                                      e,
-                                      "repeat of a chomping mode identifier",
-                                    );
+                                  w === s ? s = 43 === o ? k : C : N(
+                                    e,
+                                    "repeat of a chomping mode identifier",
+                                  );
                                 } else {
                                   if (
                                     !(0 <= (r = 48 <= (a = o) && a <= 57
@@ -2125,7 +2141,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                               }
                               if (S(o)) {
                                 for (
-                                  ; S(o = e.input.charCodeAt(++e.position));
+                                  ;
+                                  S(o = e.input.charCodeAt(++e.position));
                                 );
                                 if (35 === o) {
                                   for (
@@ -2189,46 +2206,48 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                 }
                               }
                               return !0;
-                            }(e, p) || function (e, t) {
-                          var n, i, r;
-                          if (
-                            39 !== (n = e.input.charCodeAt(e.position))
-                          ) {
-                            return !1;
-                          }
-                          for (
-                            e.kind = "scalar",
-                              e.result = "",
-                              e.position++,
-                              i = r = e.position;
-                            0 !== (n = e.input.charCodeAt(e.position));
-                          ) {
-                            if (39 === n) {
-                              if (
-                                L(e, i, e.position, !0),
-                                  39 !== (n = e.input.charCodeAt(++e.position))
-                              ) {
-                                return !0;
-                              }
-                              i = e.position, e.position++, r = e.position;
-                            } else {
-                              j(n)
-                                ? (L(e, i, r, !0),
-                                  B(e, Y(e, !1, t)),
-                                  i = r = e.position)
-                                : e.position === e.lineStart && R(e)
-                                ? N(
-                                  e,
-                                  "unexpected end of the document within a single quoted scalar",
-                                )
-                                : (e.position++, r = e.position);
+                            }(e, p) ||
+                          function (e, t) {
+                            var n, i, r;
+                            if (
+                              39 !== (n = e.input.charCodeAt(e.position))
+                            ) {
+                              return !1;
                             }
-                          }
-                          N(
-                            e,
-                            "unexpected end of the stream within a single quoted scalar",
-                          );
-                        }(e, p) || function (e, t) {
+                            for (
+                              e.kind = "scalar",
+                                e.result = "",
+                                e.position++,
+                                i = r = e.position;
+                              0 !== (n = e.input.charCodeAt(e.position));
+                            ) {
+                              if (39 === n) {
+                                if (
+                                  L(e, i, e.position, !0),
+                                    39 !==
+                                      (n = e.input.charCodeAt(++e.position))
+                                ) {
+                                  return !0;
+                                }
+                                i = e.position, e.position++, r = e.position;
+                              } else {
+                                j(n)
+                                  ? (L(e, i, r, !0),
+                                    B(e, Y(e, !1, t)),
+                                    i = r = e.position)
+                                  : e.position === e.lineStart && R(e)
+                                  ? N(
+                                    e,
+                                    "unexpected end of the document within a single quoted scalar",
+                                  )
+                                  : (e.position++, r = e.position);
+                              }
+                            }
+                            N(
+                              e,
+                              "unexpected end of the stream within a single quoted scalar",
+                            );
+                          }(e, p) || function (e, t) {
                           var n, i, r, o, a, s, c, u, l, p;
                           if (
                             34 !== (s = e.input.charCodeAt(e.position))
@@ -2263,7 +2282,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                                   : 0)
                               ) {
                                 for (
-                                  r = a, o = 0; 0 < r; r--
+                                  r = a, o = 0;
+                                  0 < r;
+                                  r--
                                 ) {
                                   s = e.input.charCodeAt(++e.position),
                                     l = void 0,
@@ -2483,7 +2504,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   for (; S(r);) r = e.input.charCodeAt(++e.position);
                   if (35 === r) {
                     for (
-                      ; 0 !== (r = e.input.charCodeAt(++e.position)) && !j(r);
+                      ;
+                      0 !== (r = e.input.charCodeAt(++e.position)) && !j(r);
                     );
                     break;
                   }
@@ -2526,7 +2548,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   65279 === e.charCodeAt(0) && (e = e.slice(1)));
               var n = new m(e, t);
               for (
-                n.input += "\0"; 32 === n.input.charCodeAt(n.position);
+                n.input += "\0";
+                32 === n.input.charCodeAt(n.position);
               ) {
                 n.lineIndent += 1, n.position += 1;
               }
@@ -2953,9 +2976,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   return e ? "TRUE" : "FALSE";
                 },
                 camelcase: function (e) {
-                  return e
-                    ? "True"
-                    : "False";
+                  return e ? "True" : "False";
                 },
               },
               defaultStyle: "lowercase",
@@ -3108,21 +3129,25 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 return -1 !== i.indexOf("_") && (i = i.replace(/_/g, "")),
                   "-" !== (t = i[0]) && "+" !== t ||
                   ("-" === t && (r = -1), t = (i = i.slice(1))[0]),
-                  "0" === i ? 0 : "0" === t
-                  ? "b" === i[1] ? r * parseInt(i.slice(2), 2) : "x" === i[1]
-                  ? r * parseInt(i, 16)
-                  : r * parseInt(i, 8)
-                  : -1 !== i.indexOf(":")
-                  ? (i.split(":").forEach(function (e) {
-                    o.unshift(parseInt(e, 10));
-                  }),
-                    i = 0,
-                    n = 1,
-                    o.forEach(function (e) {
-                      i += e * n, n *= 60;
+                  "0" === i
+                    ? 0
+                    : "0" === t
+                    ? "b" === i[1]
+                      ? r * parseInt(i.slice(2), 2)
+                      : "x" === i[1]
+                      ? r * parseInt(i, 16)
+                      : r * parseInt(i, 8)
+                    : -1 !== i.indexOf(":")
+                    ? (i.split(":").forEach(function (e) {
+                      o.unshift(parseInt(e, 10));
                     }),
-                    r * i)
-                  : r * parseInt(i, 10);
+                      i = 0,
+                      n = 1,
+                      o.forEach(function (e) {
+                        i += e * n, n *= 60;
+                      }),
+                      r * i)
+                    : r * parseInt(i, 10);
               },
               predicate: function (e) {
                 return "[object Number]" ===
@@ -3136,15 +3161,17 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     : "-0b" + e.toString(2).slice(1);
                 },
                 octal: function (e) {
-                  return 0 <= e ? "0" + e.toString(8)
-                  : "-0" + e.toString(8).slice(1);
+                  return 0 <= e
+                    ? "0" + e.toString(8)
+                    : "-0" + e.toString(8).slice(1);
                 },
                 decimal: function (e) {
                   return e.toString(10);
                 },
                 hexadecimal: function (e) {
-                  return 0 <= e ? "0x" + e.toString(16).toUpperCase()
-                  : "-0x" + e.toString(16).toUpperCase().slice(1);
+                  return 0 <= e
+                    ? "0x" + e.toString(16).toUpperCase()
+                    : "-0x" + e.toString(16).toUpperCase().slice(1);
                 },
               },
               defaultStyle: "decimal",
@@ -3355,9 +3382,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 return !0;
               },
               construct: function (e) {
-                return null !== e
-                  ? e
-                  : [];
+                return null !== e ? e : [];
               },
             },
           );
@@ -3372,7 +3397,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 if (null === e) return !0;
                 var t, n, i, r, o, a = e;
                 for (
-                  o = new Array(a.length), t = 0, n = a.length; t < n; t += 1
+                  o = new Array(a.length), t = 0, n = a.length;
+                  t < n;
+                  t += 1
                 ) {
                   if (i = a[t], "[object Object]" !== s.call(i)) return !1;
                   if (1 !== (r = Object.keys(i)).length) return !1;
@@ -3384,7 +3411,9 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 if (null === e) return [];
                 var t, n, i, r, o, a = e;
                 for (
-                  o = new Array(a.length), t = 0, n = a.length; t < n; t += 1
+                  o = new Array(a.length), t = 0, n = a.length;
+                  t < n;
+                  t += 1
                 ) {
                   i = a[t], r = Object.keys(i), o[t] = [r[0], i[r[0]]];
                 }
@@ -9391,9 +9420,11 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
             var up, jsonPointer, data, matches;
             if ($data === "") return "rootData";
             if ($data[0] == "/") {
-              if (!JSON_POINTER.test($data)) {throw new Error(
+              if (!JSON_POINTER.test($data)) {
+                throw new Error(
                   "Invalid JSON-pointer: " + $data,
-                );}
+                );
+              }
               jsonPointer = $data;
               data = "rootData";
             } else {
@@ -10453,8 +10484,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               var $parentData = $dataLvl
                   ? "data" + (($dataLvl - 1) || "")
                   : "parentData",
-                $parentDataProperty = $dataLvl ? it.dataPathArr[$dataLvl]
-                : "parentDataProperty";
+                $parentDataProperty = $dataLvl
+                  ? it.dataPathArr[$dataLvl]
+                  : "parentDataProperty";
               out += " , " + ($parentData) + " , " + ($parentDataProperty) +
                 " , rootData )  ";
               var def_callRuleValidate = out;
@@ -11141,14 +11173,16 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
             var $nextValid = "valid" + $it.level;
             var $thenSch = it.schema["then"],
               $elseSch = it.schema["else"],
-              $thenPresent = $thenSch !== undefined && (it.opts.strictKeywords
-                ? typeof $thenSch == "object" &&
-                  Object.keys($thenSch).length > 0
-                : it.util.schemaHasRules($thenSch, it.RULES.all)),
-              $elsePresent = $elseSch !== undefined && (it.opts.strictKeywords
-                ? typeof $elseSch == "object" &&
-                  Object.keys($elseSch).length > 0
-                : it.util.schemaHasRules($elseSch, it.RULES.all)),
+              $thenPresent = $thenSch !== undefined &&
+                (it.opts.strictKeywords
+                  ? typeof $thenSch == "object" &&
+                    Object.keys($thenSch).length > 0
+                  : it.util.schemaHasRules($thenSch, it.RULES.all)),
+              $elsePresent = $elseSch !== undefined &&
+                (it.opts.strictKeywords
+                  ? typeof $elseSch == "object" &&
+                    Object.keys($elseSch).length > 0
+                  : it.util.schemaHasRules($elseSch, it.RULES.all)),
               $currentBaseId = $it.baseId;
             if ($thenPresent || $elsePresent) {
               var $ifClause;
@@ -11419,7 +11453,8 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                 }
               }
               if (
-                typeof $additionalItems == "object" && (it.opts.strictKeywords
+                typeof $additionalItems == "object" &&
+                (it.opts.strictKeywords
                   ? typeof $additionalItems == "object" &&
                     Object.keys($additionalItems).length > 0
                   : it.util.schemaHasRules($additionalItems, it.RULES.all))
@@ -12596,10 +12631,11 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                     $property = arr1[i1 += 1];
                     var $propertySch = it.schema.properties[$property];
                     if (
-                      !($propertySch && (it.opts.strictKeywords
-                        ? typeof $propertySch == "object" &&
-                          Object.keys($propertySch).length > 0
-                        : it.util.schemaHasRules($propertySch, it.RULES.all)))
+                      !($propertySch &&
+                        (it.opts.strictKeywords
+                          ? typeof $propertySch == "object" &&
+                            Object.keys($propertySch).length > 0
+                          : it.util.schemaHasRules($propertySch, it.RULES.all)))
                     ) {
                       $required[$required.length] = $property;
                     }
@@ -13451,8 +13487,10 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                                 if (it.opts.strictDefaults) {
                                   var $defaultMsg = "default is ignored for: " +
                                     $passData;
-                                  if (it.opts.strictDefaults === "log") {it
-                                      .logger.warn($defaultMsg);} else {
+                                  if (it.opts.strictDefaults === "log") {
+                                    it
+                                      .logger.warn($defaultMsg);
+                                  } else {
                                     throw new Error($defaultMsg);
                                   }
                                 }
@@ -14092,8 +14130,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               }
 
               if (node === undefined) return;
-              if (typeof node == "number") {return isFinite(node) ? "" + node
-                : "null";}
+              if (typeof node == "number") {
+                return isFinite(node) ? "" + node : "null";
+              }
               if (typeof node !== "object") return JSON.stringify(node);
 
               var i, out;
@@ -14313,10 +14352,14 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                 return "(?:" + str + ")";
               }
               function typeOf(o) {
-                return o === undefined ? "undefined" : o === null
-                ? "null"
-                : Object.prototype.toString.call(o).split(" ").pop().split("]")
-                  .shift().toLowerCase();
+                return o === undefined
+                  ? "undefined"
+                  : o === null
+                  ? "null"
+                  : Object.prototype.toString.call(o).split(" ").pop().split(
+                    "]",
+                  )
+                    .shift().toLowerCase();
               }
               function toUpperCase(str) {
                 return str.toUpperCase();
@@ -14552,14 +14595,14 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                     ) {
                       _arr.push(_s.value);
 
-                      if (i && _arr.length === i)break;
+                      if (i && _arr.length === i) break;
                     }
                   } catch (err) {
                     _d = true;
                     _e = err;
                   } finally {
                     try {
-                      if (!_n && _i["return"])_i["return"]();
+                      if (!_n && _i["return"]) _i["return"]();
                     } finally {
                       if (_d) throw _e;
                     }
@@ -14584,7 +14627,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               var toConsumableArray = function (arr) {
                 if (Array.isArray(arr)) {
                   for (
-                    var i = 0, arr2 = Array(arr.length); i < arr.length; i++
+                    var i = 0, arr2 = Array(arr.length);
+                    i < arr.length;
+                    i++
                   ) {
                     arr2[i] = arr[i];
                   }
@@ -14830,12 +14875,11 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                 // points were copied; start at the beginning otherwise.
 
                 for (
-                  var index = basic > 0
-                    ? basic + 1
-                    : 0;
+                  var index = basic > 0 ? basic + 1 : 0;
                   index < inputLength;
                 ) {
-                  /* no final expression */ // `index` is the index of the next character to be consumed.
+                  /* no final expression */
+                  // `index` is the index of the next character to be consumed.
                   // Decode a generalized variable-length integer into `delta`,
                   // which gets added to `i`. The overflow checking is easier
                   // if we increase `i` as we go, then subtract off its starting
@@ -15376,11 +15420,13 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               var NO_MATCH_IS_UNDEFINED = "".match(/(){0}/)[1] === undefined;
               function parse(uriString) {
                 var options = arguments.length > 1 && arguments[1] !== undefined
-                  ? arguments[1] : {};
+                  ? arguments[1]
+                  : {};
 
                 var components = {};
-                var protocol = options.iri !== false ? IRI_PROTOCOL
-                : URI_PROTOCOL;
+                var protocol = options.iri !== false
+                  ? IRI_PROTOCOL
+                  : URI_PROTOCOL;
                 if (options.reference === "suffix") {
                   uriString = (options.scheme ? options.scheme + ":" : "") +
                     "//" + uriString;
@@ -15408,18 +15454,22 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                       ? matches[3]
                       : undefined;
                     components.host = uriString.indexOf("//") !== -1
-                      ? matches[4] : undefined;
+                      ? matches[4]
+                      : undefined;
                     components.port = parseInt(matches[5], 10);
                     components.path = matches[6] || "";
                     components.query = uriString.indexOf("?") !== -1
-                      ? matches[7] : undefined;
+                      ? matches[7]
+                      : undefined;
                     components.fragment = uriString.indexOf("#") !== -1
-                      ? matches[8] : undefined;
+                      ? matches[8]
+                      : undefined;
                     //fix port number
                     if (isNaN(components.port)) {
                       components.port =
                         uriString.match(/\/\/(?:.|\n)*\:(?:\/|\?|\#|$)/)
-                          ? matches[4] : undefined;
+                          ? matches[4]
+                          : undefined;
                     }
                   }
                   if (components.host) {
@@ -15454,10 +15504,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                       "URI is not a " + options.reference + " reference.";
                   }
                   //find scheme handler
-                  var schemeHandler =
-                    SCHEMES[
-                      (options.scheme || components.scheme || "").toLowerCase()
-                    ];
+                  var schemeHandler = SCHEMES[
+                    (options.scheme || components.scheme || "").toLowerCase()
+                  ];
                   //check if scheme can't handle IRIs
                   if (
                     !options.unicodeSupport &&
@@ -15501,8 +15550,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               }
 
               function _recomposeAuthority(components, options) {
-                var protocol = options.iri !== false ? IRI_PROTOCOL
-                : URI_PROTOCOL;
+                var protocol = options.iri !== false
+                  ? IRI_PROTOCOL
+                  : URI_PROTOCOL;
                 var uriTokens = [];
                 if (components.userinfo !== undefined) {
                   uriTokens.push(components.userinfo);
@@ -15558,15 +15608,15 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
 
               function serialize(components) {
                 var options = arguments.length > 1 && arguments[1] !== undefined
-                  ? arguments[1] : {};
+                  ? arguments[1]
+                  : {};
 
                 var protocol = options.iri ? IRI_PROTOCOL : URI_PROTOCOL;
                 var uriTokens = [];
                 //find scheme handler
-                var schemeHandler =
-                  SCHEMES[
-                    (options.scheme || components.scheme || "").toLowerCase()
-                  ];
+                var schemeHandler = SCHEMES[
+                  (options.scheme || components.scheme || "").toLowerCase()
+                ];
                 //perform scheme specific serialization
                 if (schemeHandler && schemeHandler.serialize) {
                   schemeHandler.serialize(components, options);
@@ -15641,7 +15691,8 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
 
               function resolveComponents(base, relative) {
                 var options = arguments.length > 2 && arguments[2] !== undefined
-                  ? arguments[2] : {};
+                  ? arguments[2]
+                  : {};
                 var skipNormalization = arguments[3];
 
                 var target = {};
@@ -15866,7 +15917,9 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                         case "to":
                           var toAddrs = hfield[1].split(",");
                           for (
-                            var _x = 0, _xl = toAddrs.length; _x < _xl; ++_x
+                            var _x = 0, _xl = toAddrs.length;
+                            _x < _xl;
+                            ++_x
                           ) {
                             to.push(toAddrs[_x]);
                           }
@@ -15890,7 +15943,7 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                           break;
                       }
                     }
-                    if (unknownHeaders)mailtoComponents.headers = headers;
+                    if (unknownHeaders) mailtoComponents.headers = headers;
                   }
                   mailtoComponents.query = undefined;
                   for (var _x2 = 0, _xl2 = to.length; _x2 < _xl2; ++_x2) {
@@ -16146,8 +16199,10 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               this._getId = chooseGetId(opts);
 
               opts.loopRequired = opts.loopRequired || Infinity;
-              if (opts.errorDataPath == "property") {opts
-                  ._errorDataPathProperty = true;}
+              if (opts.errorDataPath == "property") {
+                opts
+                  ._errorDataPathProperty = true;
+              }
               if (opts.serialize === undefined) {
                 opts.serialize = stableStringify;
               }
@@ -16188,7 +16243,7 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               }
 
               var valid = v(data);
-              if (v.$async !== true)this.errors = v.errors;
+              if (v.$async !== true) this.errors = v.errors;
               return valid;
             }
 
@@ -16359,14 +16414,15 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                   return this;
                 case "string":
                   var schemaObj = _getSchemaObj(this, schemaKeyRef);
-                  if (schemaObj)this._cache.del(schemaObj.cacheKey);
+                  if (schemaObj) this._cache.del(schemaObj.cacheKey);
                   delete this._schemas[schemaKeyRef];
                   delete this._refs[schemaKeyRef];
                   return this;
                 case "object":
                   var serialize = this._opts.serialize;
-                  var cacheKey = serialize ? serialize(schemaKeyRef)
-                  : schemaKeyRef;
+                  var cacheKey = serialize
+                    ? serialize(schemaKeyRef)
+                    : schemaKeyRef;
                   this._cache.del(cacheKey);
                   var id = this._getId(schemaKeyRef);
                   if (id) {
@@ -16425,7 +16481,7 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                 meta: meta,
               });
 
-              if (id[0] != "#" && shouldAddSchema)this._refs[id] = schemaObj;
+              if (id[0] != "#" && shouldAddSchema) this._refs[id] = schemaObj;
               this._cache.put(cacheKey, schemaObj);
 
               if (willValidate && recursiveMeta) {
@@ -16530,10 +16586,12 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               errors = errors || this.errors;
               if (!errors) return "No errors";
               options = options || {};
-              var separator = options.separator === undefined ? ", "
-              : options.separator;
-              var dataVar = options.dataVar === undefined ? "data"
-              : options.dataVar;
+              var separator = options.separator === undefined
+                ? ", "
+                : options.separator;
+              var dataVar = options.dataVar === undefined
+                ? "data"
+                : options.dataVar;
 
               var text = "";
               for (var i = 0; i < errors.length; i++) {
@@ -16578,10 +16636,12 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               if (!optsSchemas) return;
               if (Array.isArray(optsSchemas)) self.addSchema(optsSchemas);
               else {
-                for (var key in optsSchemas) {self.addSchema(
+                for (var key in optsSchemas) {
+                  self.addSchema(
                     optsSchemas[key],
                     key,
-                  );}
+                  );
+                }
               }
             }
 
@@ -16613,7 +16673,7 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
               if (logger === false) {
                 self.logger = { log: noop, warn: noop, error: noop };
               } else {
-                if (logger === undefined)logger = console;
+                if (logger === undefined) logger = console;
                 if (
                   !(typeof logger == "object" && logger.log && logger.warn &&
                     logger.error)
@@ -17061,9 +17121,7 @@ var validate = function validate(arc) {
     if (unknownErrors) {
       message.push(
         `  ${unknownErrors} unknown validation error${
-          unknownErrors > 1
-            ? "s"
-            : ""
+          unknownErrors > 1 ? "s" : ""
         }`,
       );
     }

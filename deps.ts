@@ -37,7 +37,7 @@ export async function getTableName() {
 }
 
 /** get a begin/data key schema given options */
-export async function getKey(opts: { table: string; key?: string }) {
+export function getKey(opts: { table: string; key?: string }) {
   let env = Deno.env.toObject();
   let stage = env.DENO_ENV === "testing"
     ? "staging"

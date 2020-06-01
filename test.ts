@@ -27,3 +27,50 @@ Deno.test("set, get & destroy", async () => {
   await destroy({ table: "foo", key });
   await stop();
 });
+
+Deno.test("get by table name", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  await Promise.all([
+    set({ table, cat: "grey" }),
+    set({ table, cat: "tabby" }),
+    set({ table, cat: "black" }),
+    set({ table, cat: "grey" }),
+    set({ table, cat: "tabby" }),
+    set({ table, cat: "black" }),
+    set({ table, cat: "grey" }),
+    set({ table, cat: "tabby" }),
+    set({ table, cat: "black" }),
+    set({ table, cat: "grey" }),
+    set({ table, cat: "tabby" }),
+    set({ table, cat: "black" }),
+  ]);
+  let result = await get({ table });
+  console.log(result, result.cursor);
+  await stop();
+});
+
+Deno.test("batch get", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  let cat1 = { table, key: "sutr0" };
+  let cat2 = { table, key: "blackie" };
+  await Promise.all([
+    set(cat1),
+    set(cat2),
+  ]);
+  let result = await get([cat2, cat1]);
+  console.log(result);
+  await stop();
+});
+
+Deno.test("batch set", async () => {
+  let table = "cats";
+  let stop = await sandbox();
+  let cat1 = { table, key: "sutr02" };
+  let cat2 = { table, key: "blackie2" };
+  let cat3 = { table };
+  let result = await set([cat1, cat2, cat3]);
+  console.log(result);
+  await stop();
+});
