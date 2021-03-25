@@ -15,7 +15,8 @@ Experimental port of begin/data from Node to Deno
 
 ### api
 
-begin/data organizes collections of json documents by *`table`* and *`key`*. All documents have these properties.
+begin/data organizes collections of json documents by _`table`_ and _`key`_. All
+documents have these properties.
 
 ### writing documents with `set`
 
@@ -25,19 +26,23 @@ begin/data organizes collections of json documents by *`table`* and *`key`*. All
 
 #### `set` examples
 
-Write any valid JSON document; please ensure required `table` and `key` properties exist.
+Write any valid JSON document; please ensure required `table` and `key`
+properties exist.
 
 ```typescript
 import * as data from "https://deno.begin.com/data@latest/mod.ts";
 
-await data.set({ table: "cats", key: "sutr0", cat: true, });
+await data.set({ table: "cats", key: "sutr0", cat: true });
 ```
 
 ### reading documents with `get`
 
-- [x] `get(params:{table:string, key:string, begin?:string}):Promise<{table:string, key:string}>` read one document
-- [x] `get(params:{table:string}):Promise<{table:string, key:string}[]>` paginate documents
-- [x] `get(params:object[]):Promise<{table:string, key:string}[]>` batch read documents
+- [x] `get(params:{table:string, key:string, begin?:string}):Promise<{table:string, key:string}>`
+  read one document
+- [x] `get(params:{table:string}):Promise<{table:string, key:string}[]>`
+  paginate documents
+- [x] `get(params:object[]):Promise<{table:string, key:string}[]>` batch read
+  documents
 
 #### `get` examples
 
@@ -48,23 +53,24 @@ import { get } from "https://deno.begin.com/data@latest/mod.ts";
 
 let table = "people";
 let key = "brian@begin.com";
-let person = await get({ table, key })
+let person = await get({ table, key });
 // { table: "people", key: "brian@begin.com", role: "maintainer" }
 ```
 
-To read the first ten records in a table just pass `table` and no other arguments:
+To read the first ten records in a table just pass `table` and no other
+arguments:
 
 ```typescript
-let firstpage = await get({ table })
+let firstpage = await get({ table });
 // [{table, key}, {table, key}, {table, key}, ...]
-let cursor = firstpage.cursor
+let cursor = firstpage.cursor;
 // Xkasskieewxx9429kdad...
 ```
 
 Paginate the table collection by passing `cursor` back to `get`:
 
 ```typescript
-let secondpage = await get({ table, cursor })
+let secondpage = await get({ table, cursor });
 // [{table, key}, {table, key}, {table, key}, ...]
 ```
 
@@ -77,10 +83,10 @@ let secondpage = await get({ table, cursor })
 ```typescript
 import { page } from "https://deno.begin.com/data@latest/mod.ts";
 
-let pages = await page({table: 'accounts', limit: 5})
+let pages = await page({ table: "accounts", limit: 5 });
 
 for await (let account of pages) {
-  console.log(account)
+  console.log(account);
 }
 ```
 
@@ -94,4 +100,3 @@ for await (let account of pages) {
 - [x] `incr(params:{table:string, key:string, prop:string):Promise<{table:string, key:string, prop:number}>`
 - [x] `decr(params:{table:string, key:string, prop:string):Promise<{table:string, key:string, prop:number}>`
 - [x] `count(params:{table:string}):Promise<number>`
-

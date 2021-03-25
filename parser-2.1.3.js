@@ -1242,7 +1242,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     return '"' + function (e) {
                       for (var t, n, i, r = "", o = 0; o < e.length; o++) {
                         55296 <= (t = e.charCodeAt(o)) && t <= 56319 &&
-                        56320 <= (n = e.charCodeAt(o + 1)) && n <= 57343
+                          56320 <= (n = e.charCodeAt(o + 1)) && n <= 57343
                           ? (r += M(1024 * (t - 55296) + n - 56320 + 65536),
                             o++)
                           : (i = s[t], r += !i && q(t) ? e[o] : i || M(t));
@@ -1543,40 +1543,40 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
             }
             function d(e) {
               return 48 === e ? "\0" : 97 === e
-              ? ""
-              : 98 === e
-              ? "\b"
-              : 116 === e
-              ? "\t"
-              : 9 === e
-              ? "\t"
-              : 110 === e
-              ? "\n"
-              : 118 === e
-              ? "\v"
-              : 102 === e
-              ? "\f"
-              : 114 === e
-              ? "\r"
-              : 101 === e
-              ? ""
-              : 32 === e
-              ? " "
-              : 34 === e
-              ? '"'
-              : 47 === e
-              ? "/"
-              : 92 === e
-              ? "\\"
-              : 78 === e
-              ? ""
-              : 95 === e
-              ? " "
-              : 76 === e
-              ? "\u2028"
-              : 80 === e
-              ? "\u2029"
-              : "";
+                ? ""
+                : 98 === e
+                ? "\b"
+                : 116 === e
+                ? "\t"
+                : 9 === e
+                ? "\t"
+                : 110 === e
+                ? "\n"
+                : 118 === e
+                ? "\v"
+                : 102 === e
+                ? "\f"
+                : 114 === e
+                ? "\r"
+                : 101 === e
+                ? ""
+                : 32 === e
+                ? " "
+                : 34 === e
+                ? '"'
+                : 47 === e
+                ? "/"
+                : 92 === e
+                ? "\\"
+                : 78 === e
+                ? ""
+                : 95 === e
+                ? " "
+                : 76 === e
+                ? "\u2028"
+                : 80 === e
+                ? "\u2029"
+                : "";
             }
             for (
               var E = new Array(256), F = new Array(256), h = 0;
@@ -1892,8 +1892,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                   i && Y(e, !0, -1) &&
                   (h = !0,
                     e.lineIndent > t ? d = 1 : e.lineIndent === t
-                    ? d = 0
-                    : e.lineIndent < t && (d = -1)),
+                      ? d = 0
+                      : e.lineIndent < t && (d = -1)),
                   1 === d
               ) {
                 for (; W(e) || K(e);) {
@@ -1901,8 +1901,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     ? (h = !0,
                       s = o,
                       e.lineIndent > t ? d = 1 : e.lineIndent === t
-                      ? d = 0
-                      : e.lineIndent < t && (d = -1))
+                        ? d = 0
+                        : e.lineIndent < t && (d = -1))
                     : s = !1;
                 }
               }
@@ -1913,304 +1913,355 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                     f = e.position - e.lineStart,
                     1 === d
                       ? s && (P(e, f) || function (e, t, n) {
-                            var i,
-                              r,
-                              o,
-                              a,
-                              s,
-                              c = e.tag,
-                              u = e.anchor,
-                              l = {},
-                              p = {},
-                              f = null,
-                              d = null,
-                              h = null,
-                              m = !1,
-                              g = !1;
-                            for (
-                              null !== e.anchor &&
-                              (e.anchorMap[e.anchor] = l),
-                                s = e.input.charCodeAt(e.position);
-                              0 !== s;
-                            ) {
-                              if (
-                                i = e.input.charCodeAt(e.position + 1),
-                                  o = e.line,
-                                  a = e.position,
-                                  63 !== s && 58 !== s || !I(i)
-                              ) {
-                                if (!$(e, n, v, !1, !0)) break;
-                                if (e.line === o) {
-                                  for (
-                                    s = e.input.charCodeAt(e.position);
-                                    S(s);
-                                  ) {
-                                    s = e.input.charCodeAt(++e.position);
-                                  }
-                                  if (58 === s) {
-                                    I(s = e.input.charCodeAt(++e.position)) ||
-                                    N(
-                                      e,
-                                      "a whitespace character is expected after the key-value separator within a block mapping",
-                                    ),
-                                      m &&
-                                      (U(e, l, p, f, d, null),
-                                        f = d = h = null),
-                                      r = m = !(g = !0),
-                                      f = e.tag,
-                                      d = e.result;
-                                  } else {
-                                    if (!g) {
-                                      return e.tag = c, e.anchor = u, !0;
-                                    }
-                                    N(
-                                      e,
-                                      "can not read an implicit mapping pair; a colon is missed",
-                                    );
-                                  }
-                                } else {
-                                  if (!g) return e.tag = c, e.anchor = u, !0;
-                                  N(
-                                    e,
-                                    "can not read a block mapping entry; a multiline key may not be an implicit key",
-                                  );
-                                }
-                              } else {
-                                63 === s
-                                  ? (m &&
-                                    (U(e, l, p, f, d, null), f = d = h = null),
-                                    r = m = g = !0)
-                                  : m
-                                  ? r = !(m = !1)
-                                  : N(
-                                    e,
-                                    "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
-                                  ),
-                                  e.position += 1,
-                                  s = i;
-                              }
-                              if (
-                                (e.line === o || e.lineIndent > t) &&
-                                ($(e, t, b, !0, r) && (m
-                                  ? d = e.result
-                                  : h = e.result),
-                                  m ||
-                                  (U(e, l, p, f, d, h, o, a), f = d = h = null),
-                                  Y(e, !0, -1),
-                                  s = e.input.charCodeAt(e.position)),
-                                  e.lineIndent > t && 0 !== s
-                              ) {
-                                N(e, "bad indentation of a mapping entry");
-                              } else if (e.lineIndent < t) {
-                                break;
-                              }
-                            }
-                            return m && U(e, l, p, f, d, null),
-                              g &&
-                              (e.tag = c,
-                                e.anchor = u,
-                                e.kind = "mapping",
-                                e.result = l),
-                              g;
-                          }(e, f, p)) || function (e, t) {
-                        var n,
-                          i,
-                          r,
-                          o,
-                          a,
-                          s,
-                          c,
-                          u,
-                          l,
-                          p,
-                          f = !0,
-                          d = e.tag,
-                          h = e.anchor,
-                          m = {};
-                        if (
-                          91 === (p = e.input.charCodeAt(e.position))
-                        ) {
-                          s = !(r = 93), i = [];
-                        } else {
-                          if (123 !== p) return !1;
-                          r = 125, s = !0, i = {};
-                        }
-                        for (
-                          null !== e.anchor && (e.anchorMap[e.anchor] = i),
-                            p = e.input.charCodeAt(++e.position);
-                          0 !== p;
-                        ) {
-                          if (
-                            Y(e, !0, t),
-                              (p = e.input.charCodeAt(e.position)) === r
-                          ) {
-                            return e.position++,
-                              e.tag = d,
-                              e.anchor = h,
-                              e.kind = s ? "mapping" : "sequence",
-                              e.result = i,
-                              !0;
-                          }
-                          f ||
-                          N(e, "missed comma between flow collection entries"),
-                            l = null,
-                            o = a = !1,
-                            63 === p &&
-                            I(e.input.charCodeAt(e.position + 1)) &&
-                            (o = a = !0, e.position++, Y(e, !0, t)),
-                            n = e.line,
-                            $(e, t, x, !1, !0),
-                            u = e.tag,
-                            c = e.result,
-                            Y(e, !0, t),
-                            p = e.input.charCodeAt(e.position),
-                            !a && e.line !== n || 58 !== p ||
-                            (o = !0,
-                              p = e.input.charCodeAt(++e.position),
-                              Y(e, !0, t),
-                              $(e, t, x, !1, !0),
-                              l = e.result),
-                            s
-                              ? U(e, i, m, u, c, l)
-                              : o
-                              ? i.push(U(e, null, m, u, c, l))
-                              : i.push(c),
-                            Y(e, !0, t),
-                            44 === (p = e.input.charCodeAt(e.position))
-                              ? (f = !0, p = e.input.charCodeAt(++e.position))
-                              : f = !1;
-                        }
-                        N(
-                          e,
-                          "unexpected end of the stream within a flow collection",
-                        );
-                      }(e, p)
-                        ? m = !0
-                        : (a && function (e, t) {
-                              var n,
-                                i,
+                              var i,
                                 r,
                                 o,
                                 a,
-                                s = w,
-                                c = !1,
-                                u = !1,
-                                l = t,
-                                p = 0,
-                                f = !1;
-                              if (
-                                124 === (o = e.input.charCodeAt(e.position))
+                                s,
+                                c = e.tag,
+                                u = e.anchor,
+                                l = {},
+                                p = {},
+                                f = null,
+                                d = null,
+                                h = null,
+                                m = !1,
+                                g = !1;
+                              for (
+                                null !== e.anchor &&
+                                (e.anchorMap[e.anchor] = l),
+                                  s = e.input.charCodeAt(e.position);
+                                0 !== s;
                               ) {
-                                i = !1;
-                              } else {
-                                if (62 !== o) {
-                                  return !1;
-                                }
-                                i = !0;
-                              }
-                              for (e.kind = "scalar", e.result = ""; 0 !== o;) {
                                 if (
-                                  43 ===
-                                    (o = e.input.charCodeAt(++e.position)) ||
-                                  45 === o
+                                  i = e.input.charCodeAt(e.position + 1),
+                                    o = e.line,
+                                    a = e.position,
+                                    63 !== s && 58 !== s || !I(i)
                                 ) {
-                                  w === s ? s = 43 === o ? k : C : N(
-                                    e,
-                                    "repeat of a chomping mode identifier",
-                                  );
-                                } else {
-                                  if (
-                                    !(0 <= (r = 48 <= (a = o) && a <= 57
-                                      ? a - 48
-                                      : -1))
-                                  ) {
-                                    break;
+                                  if (!$(e, n, v, !1, !0)) break;
+                                  if (e.line === o) {
+                                    for (
+                                      s = e.input.charCodeAt(e.position);
+                                      S(s);
+                                    ) {
+                                      s = e.input.charCodeAt(++e.position);
+                                    }
+                                    if (58 === s) {
+                                      I(s = e.input.charCodeAt(++e.position)) ||
+                                      N(
+                                        e,
+                                        "a whitespace character is expected after the key-value separator within a block mapping",
+                                      ),
+                                        m &&
+                                        (U(e, l, p, f, d, null),
+                                          f = d = h = null),
+                                        r = m = !(g = !0),
+                                        f = e.tag,
+                                        d = e.result;
+                                    } else {
+                                      if (!g) {
+                                        return e.tag = c, e.anchor = u, !0;
+                                      }
+                                      N(
+                                        e,
+                                        "can not read an implicit mapping pair; a colon is missed",
+                                      );
+                                    }
+                                  } else {
+                                    if (!g) return e.tag = c, e.anchor = u, !0;
+                                    N(
+                                      e,
+                                      "can not read a block mapping entry; a multiline key may not be an implicit key",
+                                    );
                                   }
-                                  0 == r
-                                    ? N(
+                                } else {
+                                  63 === s
+                                    ? (m &&
+                                      (U(e, l, p, f, d, null),
+                                        f = d = h = null),
+                                      r = m = g = !0)
+                                    : m
+                                    ? r = !(m = !1)
+                                    : N(
                                       e,
-                                      "bad explicit indentation width of a block scalar; it cannot be less than one",
-                                    )
-                                    : u
-                                    ? N(
-                                      e,
-                                      "repeat of an indentation width identifier",
-                                    )
-                                    : (l = t + r - 1, u = !0);
+                                      "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
+                                    ),
+                                    e.position += 1,
+                                    s = i;
+                                }
+                                if (
+                                  (e.line === o || e.lineIndent > t) &&
+                                  ($(e, t, b, !0, r) &&
+                                    (m ? d = e.result : h = e.result),
+                                    m ||
+                                    (U(e, l, p, f, d, h, o, a),
+                                      f = d = h = null),
+                                    Y(e, !0, -1),
+                                    s = e.input.charCodeAt(e.position)),
+                                    e.lineIndent > t && 0 !== s
+                                ) {
+                                  N(e, "bad indentation of a mapping entry");
+                                } else if (e.lineIndent < t) {
+                                  break;
                                 }
                               }
-                              if (S(o)) {
+                              return m && U(e, l, p, f, d, null),
+                                g &&
+                                (e.tag = c,
+                                  e.anchor = u,
+                                  e.kind = "mapping",
+                                  e.result = l),
+                                g;
+                            }(e, f, p)) || function (e, t) {
+                          var n,
+                            i,
+                            r,
+                            o,
+                            a,
+                            s,
+                            c,
+                            u,
+                            l,
+                            p,
+                            f = !0,
+                            d = e.tag,
+                            h = e.anchor,
+                            m = {};
+                          if (
+                            91 === (p = e.input.charCodeAt(e.position))
+                          ) {
+                            s = !(r = 93), i = [];
+                          } else {
+                            if (123 !== p) return !1;
+                            r = 125, s = !0, i = {};
+                          }
+                          for (
+                            null !== e.anchor && (e.anchorMap[e.anchor] = i),
+                              p = e.input.charCodeAt(++e.position);
+                            0 !== p;
+                          ) {
+                            if (
+                              Y(e, !0, t),
+                                (p = e.input.charCodeAt(e.position)) === r
+                            ) {
+                              return e.position++,
+                                e.tag = d,
+                                e.anchor = h,
+                                e.kind = s ? "mapping" : "sequence",
+                                e.result = i,
+                                !0;
+                            }
+                            f ||
+                            N(
+                              e,
+                              "missed comma between flow collection entries",
+                            ),
+                              l = null,
+                              o = a = !1,
+                              63 === p &&
+                              I(e.input.charCodeAt(e.position + 1)) &&
+                              (o = a = !0, e.position++, Y(e, !0, t)),
+                              n = e.line,
+                              $(e, t, x, !1, !0),
+                              u = e.tag,
+                              c = e.result,
+                              Y(e, !0, t),
+                              p = e.input.charCodeAt(e.position),
+                              !a && e.line !== n || 58 !== p ||
+                              (o = !0,
+                                p = e.input.charCodeAt(++e.position),
+                                Y(e, !0, t),
+                                $(e, t, x, !1, !0),
+                                l = e.result),
+                              s
+                                ? U(e, i, m, u, c, l)
+                                : o
+                                ? i.push(U(e, null, m, u, c, l))
+                                : i.push(c),
+                              Y(e, !0, t),
+                              44 === (p = e.input.charCodeAt(e.position))
+                                ? (f = !0, p = e.input.charCodeAt(++e.position))
+                                : f = !1;
+                          }
+                          N(
+                            e,
+                            "unexpected end of the stream within a flow collection",
+                          );
+                        }(e, p)
+                        ? m = !0
+                        : (a && function (e, t) {
+                                var n,
+                                  i,
+                                  r,
+                                  o,
+                                  a,
+                                  s = w,
+                                  c = !1,
+                                  u = !1,
+                                  l = t,
+                                  p = 0,
+                                  f = !1;
+                                if (
+                                  124 === (o = e.input.charCodeAt(e.position))
+                                ) {
+                                  i = !1;
+                                } else {
+                                  if (62 !== o) {
+                                    return !1;
+                                  }
+                                  i = !0;
+                                }
                                 for (
-                                  ;
-                                  S(o = e.input.charCodeAt(++e.position));
-                                );
-                                if (35 === o) {
+                                  e.kind = "scalar", e.result = "";
+                                  0 !== o;
+                                ) {
+                                  if (
+                                    43 ===
+                                      (o = e.input.charCodeAt(++e.position)) ||
+                                    45 === o
+                                  ) {
+                                    w === s ? s = 43 === o ? k : C : N(
+                                      e,
+                                      "repeat of a chomping mode identifier",
+                                    );
+                                  } else {
+                                    if (
+                                      !(0 <= (r = 48 <= (a = o) && a <= 57
+                                        ? a - 48
+                                        : -1))
+                                    ) {
+                                      break;
+                                    }
+                                    0 == r
+                                      ? N(
+                                        e,
+                                        "bad explicit indentation width of a block scalar; it cannot be less than one",
+                                      )
+                                      : u
+                                      ? N(
+                                        e,
+                                        "repeat of an indentation width identifier",
+                                      )
+                                      : (l = t + r - 1, u = !0);
+                                  }
+                                }
+                                if (S(o)) {
                                   for (
                                     ;
-                                    !j(o = e.input.charCodeAt(++e.position)) &&
-                                    0 !== o;
+                                    S(o = e.input.charCodeAt(++e.position));
                                   );
-                                }
-                              }
-                              for (; 0 !== o;) {
-                                for (
-                                  q(e),
-                                    e.lineIndent = 0,
-                                    o = e.input.charCodeAt(e.position);
-                                  (!u || e.lineIndent < l) && 32 === o;
-                                ) {
-                                  e.lineIndent++,
-                                    o = e.input.charCodeAt(++e.position);
-                                }
-                                if (
-                                  !u && e.lineIndent > l && (l = e.lineIndent),
-                                    j(o)
-                                ) {
-                                  p++;
-                                } else {
-                                  if (e.lineIndent < l) {
-                                    s === k
-                                      ? e.result += g.repeat(
-                                        "\n",
-                                        c ? 1 + p : p,
-                                      )
-                                      : s === w && c && (e.result += "\n");
-                                    break;
+                                  if (35 === o) {
+                                    for (
+                                      ;
+                                      !j(
+                                        o = e.input.charCodeAt(++e.position),
+                                      ) &&
+                                      0 !== o;
+                                    );
                                   }
+                                }
+                                for (; 0 !== o;) {
                                   for (
-                                    i
-                                      ? S(o)
-                                        ? (f = !0,
-                                          e.result += g.repeat(
-                                            "\n",
-                                            c ? 1 + p : p,
-                                          ))
-                                        : f
-                                        ? (f = !1,
-                                          e.result += g.repeat("\n", p + 1))
-                                        : 0 === p
-                                        ? c && (e.result += " ")
-                                        : e.result += g.repeat("\n", p)
-                                      : e.result += g.repeat(
-                                        "\n",
-                                        c ? 1 + p : p,
-                                      ),
-                                      u = c = !0,
-                                      p = 0,
-                                      n = e.position;
-                                    !j(o) && 0 !== o;
+                                    q(e),
+                                      e.lineIndent = 0,
+                                      o = e.input.charCodeAt(e.position);
+                                    (!u || e.lineIndent < l) && 32 === o;
                                   ) {
-                                    o = e.input.charCodeAt(++e.position);
+                                    e.lineIndent++,
+                                      o = e.input.charCodeAt(++e.position);
                                   }
-                                  L(e, n, e.position, !1);
+                                  if (
+                                    !u && e.lineIndent > l &&
+                                    (l = e.lineIndent), j(o)
+                                  ) {
+                                    p++;
+                                  } else {
+                                    if (e.lineIndent < l) {
+                                      s === k
+                                        ? e.result += g.repeat(
+                                          "\n",
+                                          c
+                                            ? 1 + p
+                                            : p,
+                                        )
+                                        : s === w && c && (e.result += "\n");
+                                      break;
+                                    }
+                                    for (
+                                      i
+                                        ? S(o)
+                                          ? (f = !0,
+                                            e.result += g.repeat(
+                                              "\n",
+                                              c ? 1 + p : p,
+                                            ))
+                                          : f
+                                          ? (f = !1,
+                                            e.result += g.repeat("\n", p + 1))
+                                          : 0 === p
+                                          ? c && (e.result += " ")
+                                          : e.result += g.repeat("\n", p)
+                                        : e.result += g.repeat(
+                                          "\n",
+                                          c ? 1 + p : p,
+                                        ),
+                                        u = c = !0,
+                                        p = 0,
+                                        n = e.position;
+                                      !j(o) && 0 !== o;
+                                    ) {
+                                      o = e.input.charCodeAt(++e.position);
+                                    }
+                                    L(e, n, e.position, !1);
+                                  }
+                                }
+                                return !0;
+                              }(e, p) ||
+                            function (e, t) {
+                              var n, i, r;
+                              if (
+                                39 !== (n = e.input.charCodeAt(e.position))
+                              ) {
+                                return !1;
+                              }
+                              for (
+                                e.kind = "scalar",
+                                  e.result = "",
+                                  e.position++,
+                                  i = r = e.position;
+                                0 !== (n = e.input.charCodeAt(e.position));
+                              ) {
+                                if (39 === n) {
+                                  if (
+                                    L(e, i, e.position, !0),
+                                      39 !==
+                                        (n = e.input.charCodeAt(++e.position))
+                                  ) {
+                                    return !0;
+                                  }
+                                  i = e.position, e.position++, r = e.position;
+                                } else {
+                                  j(n)
+                                    ? (L(e, i, r, !0),
+                                      B(e, Y(e, !1, t)),
+                                      i = r = e.position)
+                                    : e.position === e.lineStart && R(e)
+                                    ? N(
+                                      e,
+                                      "unexpected end of the document within a single quoted scalar",
+                                    )
+                                    : (e.position++, r = e.position);
                                 }
                               }
-                              return !0;
-                            }(e, p) ||
-                          function (e, t) {
-                            var n, i, r;
+                              N(
+                                e,
+                                "unexpected end of the stream within a single quoted scalar",
+                              );
+                            }(e, p) || function (e, t) {
+                            var n, i, r, o, a, s, c, u, l, p;
                             if (
-                              39 !== (n = e.input.charCodeAt(e.position))
+                              34 !== (s = e.input.charCodeAt(e.position))
                             ) {
                               return !1;
                             }
@@ -2218,138 +2269,101 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                               e.kind = "scalar",
                                 e.result = "",
                                 e.position++,
-                                i = r = e.position;
-                              0 !== (n = e.input.charCodeAt(e.position));
+                                n = i = e.position;
+                              0 !== (s = e.input.charCodeAt(e.position));
                             ) {
-                              if (39 === n) {
+                              if (34 === s) {
+                                return L(e, n, e.position, !0),
+                                  e.position++,
+                                  !0;
+                              }
+                              if (92 === s) {
                                 if (
-                                  L(e, i, e.position, !0),
-                                    39 !==
-                                      (n = e.input.charCodeAt(++e.position))
+                                  L(e, n, e.position, !0),
+                                    j(s = e.input.charCodeAt(++e.position))
                                 ) {
-                                  return !0;
-                                }
-                                i = e.position, e.position++, r = e.position;
+                                  Y(e, !1, t);
+                                } else if (s < 256 && E[s]) {
+                                  e.result += F[s], e.position++;
+                                } else if (
+                                  0 < (a = 120 === (p = s) ? 2 : 117 === p
+                                    ? 4
+                                    : 85 === p
+                                    ? 8
+                                    : 0)
+                                ) {
+                                  for (
+                                    r = a, o = 0;
+                                    0 < r;
+                                    r--
+                                  ) {
+                                    s = e.input.charCodeAt(++e.position),
+                                      l = void 0,
+                                      0 <=
+                                          (a = 48 <= (u = s) && u <= 57
+                                            ? u - 48
+                                            : 97 <= (l = 32 | u) && l <= 102
+                                            ? l - 97 + 10
+                                            : -1)
+                                        ? o = (o << 4) + a
+                                        : N(
+                                          e,
+                                          "expected hexadecimal character",
+                                        );
+                                  }
+                                  e.result += (c = o) <= 65535
+                                    ? String.fromCharCode(c)
+                                    : String.fromCharCode(
+                                      55296 + (c - 65536 >> 10),
+                                      56320 + (c - 65536 & 1023),
+                                    ), e.position++;
+                                } else N(e, "unknown escape sequence");
+                                n = i = e.position;
                               } else {
-                                j(n)
-                                  ? (L(e, i, r, !0),
+                                j(s)
+                                  ? (L(e, n, i, !0),
                                     B(e, Y(e, !1, t)),
-                                    i = r = e.position)
+                                    n = i = e.position)
                                   : e.position === e.lineStart && R(e)
                                   ? N(
                                     e,
-                                    "unexpected end of the document within a single quoted scalar",
+                                    "unexpected end of the document within a double quoted scalar",
                                   )
-                                  : (e.position++, r = e.position);
+                                  : (e.position++, i = e.position);
                               }
                             }
                             N(
                               e,
-                              "unexpected end of the stream within a single quoted scalar",
+                              "unexpected end of the stream within a double quoted scalar",
                             );
-                          }(e, p) || function (e, t) {
-                          var n, i, r, o, a, s, c, u, l, p;
-                          if (
-                            34 !== (s = e.input.charCodeAt(e.position))
-                          ) {
-                            return !1;
-                          }
-                          for (
-                            e.kind = "scalar",
-                              e.result = "",
-                              e.position++,
-                              n = i = e.position;
-                            0 !== (s = e.input.charCodeAt(e.position));
-                          ) {
-                            if (34 === s) {
-                              return L(e, n, e.position, !0), e.position++, !0;
-                            }
-                            if (92 === s) {
-                              if (
-                                L(e, n, e.position, !0),
-                                  j(s = e.input.charCodeAt(++e.position))
-                              ) {
-                                Y(e, !1, t);
-                              } else if (s < 256 && E[s]) {
-                                e.result += F[s], e.position++;
-                              } else if (
-                                0 < (a = 120 === (p = s)
-                                  ? 2
-                                  : 117 === p
-                                  ? 4
-                                  : 85 === p
-                                  ? 8
-                                  : 0)
-                              ) {
-                                for (
-                                  r = a, o = 0;
-                                  0 < r;
-                                  r--
-                                ) {
-                                  s = e.input.charCodeAt(++e.position),
-                                    l = void 0,
-                                    0 <=
-                                      (a = 48 <= (u = s) && u <= 57
-                                        ? u - 48
-                                        : 97 <= (l = 32 | u) && l <= 102
-                                        ? l - 97 + 10
-                                        : -1)
-                                      ? o = (o << 4) + a
-                                      : N(e, "expected hexadecimal character");
-                                }
-                                e.result += (c = o) <= 65535
-                                  ? String.fromCharCode(c)
-                                  : String.fromCharCode(
-                                    55296 + (c - 65536 >> 10),
-                                    56320 + (c - 65536 & 1023),
-                                  ), e.position++;
-                              } else N(e, "unknown escape sequence");
-                              n = i = e.position;
-                            } else {
-                              j(s)
-                                ? (L(e, n, i, !0),
-                                  B(e, Y(e, !1, t)),
-                                  n = i = e.position)
-                                : e.position === e.lineStart && R(e)
-                                ? N(
-                                  e,
-                                  "unexpected end of the document within a double quoted scalar",
-                                )
-                                : (e.position++, i = e.position);
-                            }
-                          }
-                          N(
-                            e,
-                            "unexpected end of the stream within a double quoted scalar",
-                          );
-                        }(e, p)
+                          }(e, p)
                           ? m = !0
                           : !function (e) {
-                            var t, n, i;
-                            if (
-                              42 !== (i = e.input.charCodeAt(e.position))
-                            ) {
-                              return !1;
-                            }
-                            for (
-                              i = e.input.charCodeAt(++e.position),
-                                t = e.position;
-                              0 !== i && !I(i) && !O(i);
-                            ) {
-                              i = e.input.charCodeAt(++e.position);
-                            }
-                            return e.position === t &&
-                              N(
-                                e,
-                                "name of an alias node must contain at least one character",
-                              ),
-                              n = e.input.slice(t, e.position),
-                              e.anchorMap.hasOwnProperty(n) ||
-                              N(e, 'unidentified alias "' + n + '"'),
-                              e.result = e.anchorMap[n],
-                              Y(e, !0, -1),
-                              !0;
-                          }(e)
+                              var t, n, i;
+                              if (
+                                42 !== (i = e.input.charCodeAt(e.position))
+                              ) {
+                                return !1;
+                              }
+                              for (
+                                i = e.input.charCodeAt(++e.position),
+                                  t = e.position;
+                                0 !== i && !I(i) && !O(i);
+                              ) {
+                                i = e.input.charCodeAt(++e.position);
+                              }
+                              return e.position === t &&
+                                N(
+                                  e,
+                                  "name of an alias node must contain at least one character",
+                                ),
+                                n = e.input.slice(t, e.position),
+                                e.anchorMap.hasOwnProperty(n) ||
+                                N(e, 'unidentified alias "' + n + '"'),
+                                e.result = e.anchorMap[n],
+                                Y(e, !0, -1),
+                                !0;
+                            }(e)
                           ? function (e, t, n) {
                             var i,
                               r,
@@ -2522,8 +2536,8 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
               }
               Y(e, !0, -1),
                 0 === e.lineIndent && 45 === e.input.charCodeAt(e.position) &&
-                45 === e.input.charCodeAt(e.position + 1) &&
-                45 === e.input.charCodeAt(e.position + 2)
+                  45 === e.input.charCodeAt(e.position + 1) &&
+                  45 === e.input.charCodeAt(e.position + 2)
                   ? (e.position += 3, Y(e, !0, -1))
                   : a && N(e, "directives end mark is expected"),
                 $(e, e.lineIndent - 1, b, !1, !0),
@@ -3074,8 +3088,7 @@ var jsYaml3_13_1_min = createCommonjsModule(function (module, exports) {
                 var t, n, i, r, o = e.length, a = 0, s = !1;
                 if (!o) return !1;
                 if (
-                  "-" !== (t = e[a]) && "+" !== t || (t = e[++a]),
-                    "0" === t
+                  "-" !== (t = e[a]) && "+" !== t || (t = e[++a]), "0" === t
                 ) {
                   if (a + 1 === o) return !0;
                   if ("b" === (t = e[++a])) {
@@ -14369,7 +14382,7 @@ var ajv6_10_2 = createCommonjsModule(function (module, exports) {
                   ? obj instanceof Array
                     ? obj
                     : typeof obj.length !== "number" || obj.split ||
-                      obj.setInterval || obj.call
+                        obj.setInterval || obj.call
                     ? [obj]
                     : Array.prototype.slice.call(obj)
                   : [];

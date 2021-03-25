@@ -1,6 +1,6 @@
 import { assert, equal, sandbox } from "./sandbox.js";
 import { version } from "./version.ts";
-import { set, get, destroy, incr, decr, count, page } from "./mod.ts";
+import { count, decr, destroy, get, incr, page, set } from "./mod.ts";
 import { createKey } from "./deps.ts";
 
 Deno.test(`begin/data@v${version}`, () => {

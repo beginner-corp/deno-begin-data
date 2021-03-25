@@ -1,8 +1,4 @@
-import {
-  createClient,
-  getTableName,
-  getKey,
-} from "./deps.ts";
+import { createClient, getKey, getTableName } from "./deps.ts";
 
 /** atomic decrement */
 export async function decr({ table, key, prop }) {

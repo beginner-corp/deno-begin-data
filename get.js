@@ -1,9 +1,4 @@
-import {
-  createClient,
-  getTableName,
-  getKey,
-  unfmt,
-} from "./deps.ts";
+import { createClient, getKey, getTableName, unfmt } from "./deps.ts";
 
 /** get an item */
 export async function get(params) {
