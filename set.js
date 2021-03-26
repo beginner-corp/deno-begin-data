@@ -1,8 +1,8 @@
 import {
-  createKey,
   createClient,
-  getTableName,
+  createKey,
   getKey,
+  getTableName,
   unfmt,
 } from "./deps.ts";
 

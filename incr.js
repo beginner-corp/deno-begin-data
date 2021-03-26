@@ -1,8 +1,4 @@
-import {
-  createClient,
-  getTableName,
-  getKey,
-} from "./deps.ts";
+import { createClient, getKey, getTableName } from "./deps.ts";
 
 /** atomic increment */
 export async function incr({ table, key, prop }) {

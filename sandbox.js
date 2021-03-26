@@ -2,7 +2,10 @@ export { assert, equal } from "https://deno.land/std/testing/asserts.ts";
 
 /** start the sandbox and return a close handler */
 export async function sandbox() {
-  let w = new Worker("./sandbox.js", { type: "module", deno: true });
+  let w = new Worker(new URL("./sandbox.js", import.meta.url).href, {
+    type: "module",
+    deno: true,
+  });
   await new Promise((res) => setTimeout(res, 1000)); //give it a second
   return async function stop() {
     w.terminate();

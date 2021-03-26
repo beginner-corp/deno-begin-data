@@ -1,8 +1,4 @@
-import {
-  createClient,
-  getTableName,
-  getKey,
-} from "./deps.ts";
+import { createClient, getKey, getTableName } from "./deps.ts";
 
 export async function count({ table }) {
   let TableName = await getTableName();
